@@ -1,20 +1,19 @@
 using Soenneker.Replicate.HttpClients.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Replicate.HttpClients.Tests;
 
-[Collection("Collection")]
-public sealed class ReplicateOpenApiHttpClientTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class ReplicateOpenApiHttpClientTests : HostedUnitTest
 {
     private readonly IReplicateOpenApiHttpClient _httpclient;
 
-    public ReplicateOpenApiHttpClientTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public ReplicateOpenApiHttpClientTests(Host host) : base(host)
     {
         _httpclient = Resolve<IReplicateOpenApiHttpClient>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
