@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Replicate.HttpClients;
 
+/// <inheritdoc cref="IReplicateOpenApiHttpClient" />
 public sealed class ReplicateOpenApiHttpClient : IReplicateOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
